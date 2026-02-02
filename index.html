@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ノマコ・コーチング | 夢をコトバにする伴走者</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --main-yellow: #F9D300;
+            --accent-green: #009A57;
+            --bg-white: #FCFAF2;
+        }
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: var(--bg-white);
+            color: #333;
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, var(--main-yellow) 0%, #ffffff 100%);
+        }
+        .btn-green {
+            background-color: var(--accent-green);
+            transition: all 0.3s ease;
+        }
+        .btn-green:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 154, 87, 0.4);
+        }
+        .card {
+            background: white;
+            border-radius: 20px;
+            transition: transform 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .section-title {
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background-color: var(--accent-green);
+            border-radius: 2px;
+        }
+        .speech-bubble {
+            position: relative;
+            background: #ffffff;
+            border: 2px solid var(--accent-green);
+            border-radius: 15px;
+            padding: 20px;
+        }
+        .speech-bubble::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 30px;
+            border-width: 15px 15px 0;
+            border-style: solid;
+            border-color: var(--accent-green) transparent;
+            display: block;
+            width: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
+        <div class="container mx-auto px-4 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <div class="w-8 h-8 bg-[#F9D300] rounded-full flex items-center justify-center font-bold text-[#009A57]">N</div>
+                <span class="font-bold text-lg hidden md:block">ノマコ、コーチングはじめるってよ</span>
+            </div>
+            <nav class="hidden md:flex gap-8 font-medium">
+                <a href="#about" class="hover:text-[#009A57]">悩み</a>
+                <a href="#solution" class="hover:text-[#009A57]">解決策</a>
+                <a href="#service" class="hover:text-[#009A57]">サービス</a>
+                <a href="#profile" class="hover:text-[#009A57]">プロフィール</a>
+            </nav>
+            <a href="https://m.me/ayaka.nakahara.5" target="_blank" class="btn-green text-white px-5 py-2 rounded-full text-sm font-bold">体験セッション</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient pt-32 pb-20 px-4">
+        <div class="container mx-auto flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 text-center md:text-left mb-10 md:mb-0">
+                <p class="text-[#009A57] font-bold mb-4 tracking-widest">「そうそう、それが言いたかった！」</p>
+                <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-6">
+                    <span class="inline-block">ラジオのような対話で、</span><br>
+                    あなたの本音を<br>
+                    <span class="text-[#009A57]">「言葉」</span>にする。
+                </h1>
+                <p class="text-gray-600 text-lg mb-8 max-w-lg">
+                    YouTube/ラジオパーソナリティのノマコが贈る、あなたのビジョンを言語化し、PDCAを回す伴走コーチング。
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                    <a href="https://m.me/ayaka.nakahara.5" target="_blank" class="btn-green text-white px-8 py-4 rounded-full font-bold text-center">体験セッションに申し込む</a>
+                    <a href="#service" class="bg-white border-2 border-[#F9D300] px-8 py-4 rounded-full font-bold text-center">サービス一覧を見る</a>
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center relative">
+                <div class="w-64 h-64 md:w-80 md:h-80 bg-[#F9D300] rounded-full overflow-hidden border-8 border-white shadow-2xl">
+                    <!-- アバター画像 -->
+                    <img src="[ノマコアバター画像URL]" alt="ノマコアバター" class="w-full h-full object-cover">
+                </div>
+                <div class="absolute -bottom-4 -right-4 bg-white p-4 rounded-2xl shadow-lg border-l-4 border-[#009A57]">
+                    <p class="text-xs font-bold text-gray-400">FOLLOWING PDCA</p>
+                    <p class="font-bold">夢への伴走者</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pain Points -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-16 section-title">こんなお悩みはありませんか？</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="p-8 rounded-3xl bg-[#FCFAF2] border-t-4 border-[#F9D300]">
+                    <div class="text-3xl mb-4">🙊</div>
+                    <p class="font-bold">「夢を語るのってちょっと恥ずかしい…」</p>
+                </div>
+                <div class="p-8 rounded-3xl bg-[#FCFAF2] border-t-4 border-[#F9D300]">
+                    <div class="text-3xl mb-4">✍️</div>
+                    <p class="font-bold">「ビジョンを書こうとしてもなかなか言葉にならない」</p>
+                </div>
+                <div class="p-8 rounded-3xl bg-[#FCFAF2] border-t-4 border-[#F9D300]">
+                    <div class="text-3xl mb-4">⚙️</div>
+                    <p class="font-bold">「手帳は使っているのに、PDCAが回らない」</p>
+                </div>
+            </div>
+            <div class="mt-16 max-w-3xl mx-auto">
+                <div class="bg-green-50 p-8 rounded-3xl border-2 border-[#009A57]">
+                    <p class="text-lg leading-relaxed mb-4">
+                        それは「意志」や「能力」の問題ではなく、<br class="hidden md:block">
+                        <strong>“言語化のプロセス”</strong>が一人では難しいだけ。
+                    </p>
+                    <p class="text-xl text-[#009A57] font-bold">
+                        必要なのは「正しい答え」ではなく、<br>
+                        「自分の本音に届く問い」です。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution -->
+    <section id="solution" class="py-20 bg-[#F9D300]">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2">
+                    <h2 class="text-3xl font-bold mb-8">パーソナリティで鍛えられた<br>「質問力」で解決します！</h2>
+                    <div class="space-y-6">
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-12 h-12 bg-white rounded-full flex items-center justify-center text-xl">📻</div>
+                            <div>
+                                <h3 class="font-bold text-lg mb-1">まるでラジオ収録！？</h3>
+                                <p class="text-gray-700">YouTube/MTCラジオで培われた“たしかな質問力”で、一人では辿り着けなかった本音を深堀り！</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-12 h-12 bg-white rounded-full flex items-center justify-center text-xl">🪄</div>
+                            <div>
+                                <h3 class="font-bold text-lg mb-1">コトバの魔術師の「言い換え力」</h3>
+                                <p class="text-gray-700">「そうそう、そう言いたかった！」表現のモヤモヤを解消し、あなたの想いを形にします。</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-12 h-12 bg-white rounded-full flex items-center justify-center text-xl">🏃‍♂️</div>
+                            <div>
+                                <h3 class="font-bold text-lg mb-1">モチベーションを維持する伴走者</h3>
+                                <p class="text-gray-700">定期的にノマコと話すことで、孤独になりがちなPDCAを楽しく継続できます。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/2 bg-white p-8 rounded-[40px] shadow-xl">
+                    <div class="text-center mb-6">
+                        <span class="bg-[#009A57] text-white px-4 py-1 rounded-full text-sm">ノマココーチングを受けると</span>
+                    </div>
+                    <ul class="space-y-6">
+                        <li class="flex items-start gap-4 border-b pb-4">
+                            <span class="text-[#009A57] text-xl font-bold">01</span>
+                            <div>
+                                <p class="font-bold">夢やビジョンが自分の言葉で語れる</p>
+                                <p class="text-sm text-gray-500">描けなかったビジョンが、確信を持って書けるようになります。</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4 border-b pb-4">
+                            <span class="text-[#009A57] text-xl font-bold">02</span>
+                            <div>
+                                <p class="font-bold">行動に意味が宿る</p>
+                                <p class="text-sm text-gray-500">「やらされ感」が「自ら選んだ行動」に変わり、スピードが加速します。</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <span class="text-[#009A57] text-xl font-bold">03</span>
+                            <div>
+                                <p class="font-bold">PDCAが自然に回り出す</p>
+                                <p class="text-sm text-gray-500">振り返りが未来への最高な材料になる感覚を得られます。</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-16 text-center section-title">利用者の声、ぞくぞく！</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="speech-bubble">
+                    <p class="text-sm leading-relaxed">「YouTubeやラジオを聴いていましたが、対面だとより考えが整理されて行動に落ちました！」</p>
+                </div>
+                <div class="speech-bubble">
+                    <p class="text-sm leading-relaxed">「聞いてほしいと思っていた痒いところに手が届く問いかけで、本音がポロリと出ました。」</p>
+                </div>
+                <div class="speech-bubble">
+                    <p class="text-sm leading-relaxed">「そういう風に捉えられるんだ！と別角度からの考え方を得られ、心が軽くなりました。」</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Plan -->
+    <section id="service" class="py-20 bg-[#FCFAF2]">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-8 text-center section-title">サービス紹介</h2>
+            
+            <!-- コーチング形式の紹介 -->
+            <div class="max-w-3xl mx-auto mb-16 text-center bg-white p-8 rounded-3xl shadow-sm border border-gray-100">
+                <p class="text-[#009A57] font-bold mb-4">【選べるコーチングスタイル】</p>
+                <p class="text-gray-700 leading-relaxed">
+                    セッションは、<strong>ノマコアバターを使った「顔出しなしコーチング」</strong>でも、<br class="hidden md:block">
+                    <strong>ノマコ本人の「顔出しコーチング」</strong>でも、どちらでもお好きな方をお選びいただけます。<br>
+                    リラックスできる形式で、あなたの本音をお聞かせください。
+                </p>
+            </div>
+
+            <!-- Single Session -->
+            <div class="max-w-4xl mx-auto mb-20">
+                <div class="card overflow-hidden border-2 border-gray-100 flex flex-col md:flex-row">
+                    <div class="md:w-1/3 bg-[#F9D300] p-8 flex flex-col justify-center items-center text-center">
+                        <span class="text-xs font-bold mb-2">単発セッション</span>
+                        <h3 class="text-xl font-bold mb-4">「夢を語ろう！」<br>ビジョン言語化</h3>
+                        <p class="text-2xl font-bold">10,000<span class="text-sm">円(税抜)</span></p>
+                        <p class="text-xs mt-2">90分 / Zoom</p>
+                    </div>
+                    <div class="md:w-2/3 p-8">
+                        <p class="font-bold text-[#009A57] mb-4">夢やビジョンを自分の言葉で描き、毎日の行動を自分事化する土台をつくる</p>
+                        <ul class="text-sm space-y-2 mb-6 text-gray-600">
+                            <li>・コーチとの会話で夢やビジョンのカケラを抽出</li>
+                            <li>・1，3，5，10年ビジョンシートを作成</li>
+                            <li>・ラジオ感覚で会話！セッション後に「音声データ」プレゼント</li>
+                        </ul>
+                        <p class="text-xs text-gray-400 bg-gray-50 p-3 rounded">
+                            おすすめ：コーチングが初めての方、夢がいまいち分からない方、ひとりでは質問が思いつかない方
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Long term Programs -->
+            <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                <!-- 3 Months -->
+                <div class="card p-8 border-2 border-[#009A57] relative">
+                    <span class="absolute -top-4 left-1/2 -translate-x-1/2 bg-[#009A57] text-white px-4 py-1 rounded-full text-xs font-bold">人気プラン</span>
+                    <h3 class="text-xl font-bold mb-2 text-center">【3ヶ月】自分軸確立コース</h3>
+                    <p class="text-center text-sm text-gray-500 mb-6">「なんとなく」の毎日を卒業する3ヶ月</p>
+                    <div class="text-center mb-8">
+                        <p class="text-3xl font-bold text-[#009A57]">45,000<span class="text-sm">円(税込)</span></p>
+                        <p class="text-xs text-gray-400">月額15,000円相当 / 全4回</p>
+                    </div>
+                    <div class="space-y-4 mb-8">
+                        <div class="text-xs flex gap-2">
+                            <span class="font-bold text-[#009A57] shrink-0">1ヶ月目:</span>
+                            <span>ビジョンの「言語化」。ノマコの深掘り質問で、本音（ワクワクの種）を抽出。</span>
+                        </div>
+                        <div class="text-xs flex gap-2">
+                            <span class="font-bold text-[#009A57] shrink-0">2ヶ月目:</span>
+                            <span>行動の「設計」。ビジョンを月間目標・週習慣に分解し、手帳へ落とし込み。</span>
+                        </div>
+                        <div class="text-xs flex gap-2">
+                            <span class="font-bold text-[#009A57] shrink-0">3ヶ月目:</span>
+                            <span>振り返りの「習慣化」。うまくいかない時の軌道修正術を伝授。</span>
+                        </div>
+                    </div>
+                    <ul class="text-xs bg-green-50 p-4 rounded-xl space-y-1">
+                        <li>🎁 セッション音声データ</li>
+                        <li>🎁 <strong>週1回チャットでの文章コーチング</strong></li>
+                    </ul>
+                </div>
+
+                <!-- 6 Months -->
+                <div class="card p-8 border-2 border-gray-100">
+                    <h3 class="text-xl font-bold mb-2 text-center">【6ヶ月】人生デザインコース</h3>
+                    <p class="text-center text-sm text-gray-500 mb-6">ビジョンを現実に変え、自走する半年間</p>
+                    <div class="text-center mb-8">
+                        <p class="text-3xl font-bold">84,000<span class="text-sm">円(税込)</span></p>
+                        <p class="text-xs text-gray-400">長期割引適用 / 全7回</p>
+                    </div>
+                    <div class="space-y-4 mb-8">
+                        <div class="text-xs flex gap-2">
+                            <span class="font-bold text-[#009A57] shrink-0">1〜3ヶ月:</span>
+                            <span>土台作りと実践。3ヶ月コースの内容に加え、徹底的にPDCAの型を定着。</span>
+                        </div>
+                        <div class="text-xs flex gap-2">
+                            <span class="font-bold text-[#009A57] shrink-0">4〜5ヶ月:</span>
+                            <span>応用と自走。予定変更や波への対処、ノマコ流メンタル安定術を伝授。</span>
+                        </div>
+                        <div class="text-xs flex gap-2">
+                            <span class="font-bold text-[#009A57] shrink-0">6ヶ月目:</span>
+                            <span>ビジョンロードマップの完成。卒業後も一人で歩める「マイ・マニュアル」作成。</span>
+                        </div>
+                    </div>
+                    <ul class="text-xs bg-gray-50 p-4 rounded-xl space-y-1">
+                        <li>🎁 セッション音声データ</li>
+                        <li>🎁 <strong>チャット相談無制限</strong></li>
+                        <li>🎁 <strong>手帳/ノート個別添削</strong></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience CTA -->
+    <section id="cta" class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="bg-[#F9D300] rounded-[50px] p-8 md:p-16 text-center max-w-4xl mx-auto shadow-2xl">
+                <h2 class="text-2xl md:text-4xl font-bold mb-6">まずは話してみませんか？</h2>
+                <div class="bg-white inline-block px-6 py-2 rounded-full font-bold text-[#009A57] mb-8">
+                    今だけ特別体験セッション募集中！
+                </div>
+                <div class="flex flex-col md:flex-row items-center justify-center gap-8 mb-12">
+                    <div class="text-left">
+                        <p class="text-gray-600 line-through">通常価格 10,000円</p>
+                        <p class="text-4xl font-bold">特別価格 5,000円</p>
+                        <p class="text-sm font-bold mt-2">限定 5名様（Zoom）</p>
+                    </div>
+                </div>
+                <div class="bg-white/50 p-6 rounded-2xl mb-10 text-sm inline-block">
+                    <p>対象：平日夜もしくは土日のセッションが可能な方</p>
+                    <p>※会社員のため、ご連絡は19時以降または土日となります</p>
+                </div>
+                <br>
+                <a href="https://m.me/ayaka.nakahara.5" target="_blank" class="btn-green text-white px-10 py-5 rounded-full font-bold text-xl inline-block">Facebook Messengerでお申込み</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Profile -->
+    <section id="profile" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center gap-12 max-w-4xl mx-auto">
+                <div class="md:w-1/3">
+                    <div class="w-48 h-48 rounded-3xl rotate-3 overflow-hidden shadow-lg">
+                        <!-- 本人写真 or アバター画像2 -->
+                        <img src="[ノマコ本人写真URL]" alt="ノマコ写真" class="w-full h-full object-cover">
+                    </div>
+                </div>
+                <div class="md:w-2/3">
+                    <h2 class="text-2xl font-bold mb-2">Who's ノマコ？</h2>
+                    <p class="text-[#009A57] font-bold mb-6">夢をコトバにする伴走者</p>
+                    <div class="text-sm text-gray-600 space-y-4 mb-8">
+                        <p>2021年10月My手帳倶楽部入会、手帳コーチ養成講座4期卒業生。会社員として働く傍ら、YouTube「手帳の強化書」／MTCラジオパーソナリティとして活動中。</p>
+                        <p>とにかく聴く。否定しない。問いであなたの言葉を引き出す。そんなコーチングを大切にしています。</p>
+                    </div>
+                    <div class="flex gap-4">
+                        <div class="bg-[#FCFAF2] p-3 rounded-lg text-xs font-bold text-center flex-1">
+                            相槌の上手さに定評アリ
+                        </div>
+                        <div class="bg-[#FCFAF2] p-3 rounded-lg text-xs font-bold text-center flex-1">
+                            高身長スパダリ夫
+                        </div>
+                        <div class="bg-[#FCFAF2] p-3 rounded-lg text-xs font-bold text-center flex-1">
+                            関西人の歌好き
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#009A57] text-white py-20 px-4 text-center">
+        <div class="flex justify-center mb-8">
+            <div class="w-24 h-24 rounded-full overflow-hidden border-4 border-white/20">
+                <!-- フッターアバター -->
+                <img src="[ノマコアバター画像URL]" alt="ノマコアバター" class="w-full h-full object-cover">
+            </div>
+        </div>
+        <h2 class="text-3xl font-bold mb-8">さぁ、一緒に未来をソウゾウしよう！</h2>
+        <p class="mb-12 opacity-80">夢を語るのは恥ずかしいことじゃない。<br>一緒に考えてあなたらしい言葉でビジョンを描こう！</p>
+        <div class="w-20 h-1 bg-white/30 mx-auto mb-12"></div>
+        <p class="text-sm mb-4">ノマコ（野間 彩花）</p>
+        <p class="text-xs opacity-50">&copy; 2026 Nomako Coaching. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
