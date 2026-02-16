@@ -424,24 +424,26 @@
         </section>
     </main>
 
-    <!-- コピー完了モーダル -->
-    <div id="copy-modal" class="hidden fixed inset-0 z-[100] flex items-center justify-center p-4">
-        <div class="bg-white rounded-[30px] p-8 max-w-sm w-full text-center shadow-2xl">
+    <!-- コピー完了モーダル（修正済み：背景透過と中央寄せ） -->
+    <div id="copy-modal" class="hidden fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm transition-opacity duration-300">
+        <div class="bg-white rounded-[30px] p-8 max-w-sm w-full text-center shadow-2xl transform transition-transform duration-300 scale-100 max-h-[90vh] overflow-y-auto">
             <div class="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                 </svg>
             </div>
-            <h3 class="text-xl font-bold mb-2">コピーしました！</h3>
-            <p class="text-gray-600 text-sm mb-6">
-                お申込み内容をコピーしました。Messengerが開いたらノマコとのトーク画面が開くまで少しお待ちください。開いたらメッセージ欄に貼り付けして送信してください。
+            <h3 class="text-xl font-bold mb-2 text-slate-800">コピーしました！</h3>
+            <p class="text-gray-600 text-sm mb-6 leading-relaxed">
+                内容をコピーしました。Messengerが開いたらメッセージ欄に貼り付けして送信してください。
             </p>
-            <button onclick="redirectToMessenger()" class="btn-green text-white w-full py-4 rounded-full font-bold text-lg shadow-lg">
-                Messengerを起動する
-            </button>
-            <button onclick="closeModal()" class="mt-4 text-gray-400 text-sm hover:underline block mx-auto">
-                閉じる
-            </button>
+            <div class="space-y-3">
+                <button onclick="redirectToMessenger()" class="btn-green text-white w-full py-4 rounded-full font-bold text-lg shadow-lg">
+                    Messengerを起動する
+                </button>
+                <button onclick="closeModal()" class="text-gray-400 text-sm hover:underline block mx-auto py-2">
+                    閉じる
+                </button>
+            </div>
         </div>
     </div>
 
@@ -526,6 +528,7 @@
     </script>
 </body>
 </html>
+
 
 
 
