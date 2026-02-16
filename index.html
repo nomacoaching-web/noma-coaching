@@ -430,39 +430,31 @@
         <p class="text-[10px] opacity-50">&copy; 2026 Nomako Coaching. All Rights Reserved.</p>
     </footer>
 
-    <!-- コピー完了通知モーダル -->
-    <div id="copy-modal" class="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 opacity-0 pointer-events-none transition-opacity duration-300 backdrop-blur-sm">
-        <div class="bg-white p-8 rounded-[40px] text-center max-w-xs mx-4 shadow-2xl scale-95 transition-transform duration-300" id="modal-content">
-            <div class="text-5xl mb-4">📋✨</div>
-            <h3 class="font-bold text-xl mb-3 text-slate-800">コピーしました！</h3>
-            <p class="text-sm text-slate-500 mb-8 leading-relaxed">
-                Messengerが起動しますので、<br>
-                メッセージ欄を<strong>長押しして「貼り付け」</strong>て送信してください！
+    <!-- コピー完了モーダル（初期状態は非表示） -->
+    <div id="copy-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 modal-overlay">
+        <div class="bg-white rounded-[30px] p-8 max-w-sm w-full text-center shadow-2xl transform transition-all">
+            <div class="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+            </div>
+            <h3 class="text-xl font-bold mb-2">コピーしました！</h3>
+            <p class="text-gray-600 text-sm mb-6">
+                お申込み内容をクリップボードにコピーしました。Messengerが開いたらメッセージ欄に貼り付けて送信してください。
             </p>
-            <button onclick="launchMessenger()" class="btn-green text-white px-8 py-4 rounded-full font-bold w-full text-lg shadow-md">
-                Messengerを起動
+            <button onclick="redirectToMessenger()" class="btn-green text-white w-full py-4 rounded-full font-bold text-lg shadow-lg">
+                Messengerを起動する
+            </button>
+            <button onclick="closeModal()" class="mt-4 text-gray-400 text-sm hover:underline">
+                閉じる
             </button>
         </div>
     </div>
+        <script>
+        // メッセンジャーのURL
+        const MESSENGER_URL = 'https://m.me/ayaka.nakahara.5';
 
-    <script>
-        // スムーススクロールの処理
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    e.preventDefault();
-                    targetElement.scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-
-        // お申込みボタン押下時の処理
-        function handleSubmit() {
+        function handleCopyProcess() {
             const form = document.getElementById('order-form');
             
             // バリデーションチェック
@@ -474,48 +466,46 @@
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
             const menu = document.getElementById('menu').value;
-            const message = document.getElementById('message').value || '特になし';
             const schedule = document.getElementById('schedule').value;
 
-            const copyText = `【コーチングお申込み】\n\n■氏名：\n${name}\n\n■連絡先：\n${email}\n\n■希望メニュー：\n${menu}\n\n■相談内容：\n${message}\n\n■希望日時：\n${schedule}\n\nよろしくお願いします！`;
+            const copyText = `【コーチングお申込み】\n\n■氏名：\n${name}\n\n■連絡先：\n${email}\n\n■希望メニュー：\n${menu}\n\n■希望日時：\n${schedule}\n\nよろしくお願いします！`;
 
-            // クリップボードにコピー
+            // 1. クリップボードにコピー
             const dummyArea = document.createElement("textarea");
             dummyArea.value = copyText;
             document.body.appendChild(dummyArea);
             dummyArea.select();
+            
             try {
-                // ブラウザ互換性を考慮したコピー
-                const successful = document.execCommand('copy');
-                if (!successful) throw new Error('Copy command failed');
+                const success = document.execCommand('copy');
+                if (success) {
+                    // 2. コピーに成功したらモーダルを表示
+                    openModal();
+                } else {
+                    console.error('コピーに失敗しました');
+                }
             } catch (err) {
-                console.error('コピーに失敗しました', err);
+                console.error('コピー処理中にエラーが発生しました', err);
             }
             document.body.removeChild(dummyArea);
-
-            // モーダルを表示
-            const modal = document.getElementById('copy-modal');
-            const modalInner = document.getElementById('modal-content');
-            modal.classList.add('modal-active');
-            modalInner.classList.remove('scale-95');
-            modalInner.classList.add('scale-100');
         }
 
-        // Messengerへリダイレクト
-        function launchMessenger() {
-            const messengerUrl = 'https://m.me/ayaka.nakahara.5';
-            window.open(messengerUrl, '_blank');
+        function openModal() {
             const modal = document.getElementById('copy-modal');
-            modal.classList.remove('modal-active');
+            modal.classList.remove('hidden');
         }
-        
-        // モーダルの背景をクリックしても閉じられるように
-        document.getElementById('copy-modal').addEventListener('click', function(e) {
-            if (e.target === this) {
-                this.classList.remove('modal-active');
-            }
-        });
+
+        function closeModal() {
+            const modal = document.getElementById('copy-modal');
+            modal.classList.add('hidden');
+        }
+
+        function redirectToMessenger() {
+            // Messengerを開く
+            window.location.href = MESSENGER_URL;
+        }
     </script>
 </body>
 </html>
+
 
