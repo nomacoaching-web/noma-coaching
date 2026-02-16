@@ -335,62 +335,79 @@
         </div>
     </section>
 
-    <!-- Experience CTA -->
-    <section id="cta" class="py-20">
-        <div class="container mx-auto px-4">
-            <div class="bg-[#F9D300] rounded-[50px] p-8 md:p-16 text-center max-w-4xl mx-auto shadow-2xl">
-                <h2 class="text-2xl md:text-4xl font-bold mb-6">まずは話してみませんか？</h2>
-                <div class="bg-white inline-block px-6 py-2 rounded-full font-bold text-[#009A57] mb-8">
-                    今だけ特別体験セッション募集中！
-                </div>
-                <div class="flex flex-col md:flex-row items-center justify-center gap-8 mb-12">
-                    <div class="text-left">
-                        <p class="text-gray-600 line-through">通常価格 10,000円</p>
-                        <p class="text-4xl font-bold">特別価格 5,000円</p>
-                        <p class="text-sm font-bold mt-2">限定 5名様（Zoom）</p>
+        <!-- CTA Form -->
+        <section id="cta" class="py-24 px-4 scroll-mt-20">
+            <div class="container mx-auto">
+                <div class="bg-[#F9D300] rounded-[30px] md:rounded-[50px] p-6 md:p-12 max-w-4xl mx-auto shadow-2xl relative">
+                    <div class="text-center mb-10">
+                        <h2 class="text-2xl md:text-4xl font-bold mb-4">まずは話してみませんか？</h2>
+                        <div class="bg-white inline-block px-6 py-2 rounded-full font-bold text-[#009A57] mb-8">
+                            今だけ特別体験セッション募集中！
+                        </div>
+                        <div class="flex flex-col md:flex-row items-center justify-center gap-8 mb-8">
+                            <div class="text-center md:text-left">
+                                <p class="text-gray-600 line-through text-sm">通常価格 10,000円</p>
+                                <p class="text-3xl md:text-4xl font-bold">特別価格 5,000円</p>
+                                <p class="text-sm font-bold mt-2">限定 5名様（Zoom）</p>
+                            </div>
+                        </div>
+                        <div class="bg-white/50 p-4 rounded-2xl mb-10 text-xs inline-block max-w-md">
+                            <p>対象：平日夜もしくは土日のセッションが可能な方</p>
+                            <p>※会社員のため、ご連絡は19時以降または土日となります</p>
+                        </div>
                     </div>
-                </div>
-                <div class="bg-white/50 p-6 rounded-2xl mb-10 text-sm inline-block">
-                    <p>対象：平日夜もしくは土日のセッションが可能な方</p>
-                    <p>※会社員のため、ご連絡は19時以降または土日となります</p>
-                </div>
-                <br>
-                <a href="https://m.me/ayaka.nakahara.5" target="_blank" class="btn-green text-white px-10 py-5 rounded-full font-bold text-xl inline-block">Facebook Messengerでお申込み</a>
-            </div>
-        </div>
-    </section>
 
-    <!-- Profile -->
-    <section id="profile" class="py-20 bg-white">
-        <div class="container mx-auto px-4">
-            <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12 max-w-4xl mx-auto">
-                <div class="w-48 h-48 flex-shrink-0">
-                    <div class="w-full h-full rounded-3xl rotate-3 overflow-hidden shadow-lg bg-[#F9D300]">
-                        <img src="nomaco_eieio.png" alt="ノマコ写真" class="w-full h-full object-cover" style="object-position: center top; transform: scale(1.2); transform-origin: top;">
-                    </div>
-                </div>
-                <div class="md:w-2/3 text-center md:text-left">
-                    <h2 class="text-2xl font-bold mb-2">Who's ノマコ？</h2>
-                    <p class="text-[#009A57] font-bold mb-6">夢をコトバにする伴走者</p>
-                    <div class="text-sm text-gray-600 space-y-4 mb-8">
-                        <p>一般社団法人日本手帳マネージメント協会コーチング講座卒業。会社員として働く傍ら、YouTube「手帳の強化書」／MTCラジオパーソナリティとして活動中。</p>
-                        <p>とにかく聴く。否定しない。問いであなたの言葉を引き出す。そんなコーチングを大切にしています。</p>
-                    </div>
-                    <div class="flex flex-wrap justify-center md:justify-start gap-2">
-                        <div class="bg-[#FCFAF2] px-3 py-2 rounded-lg text-[10px] md:text-xs font-bold">質問力に定評アリ</div>
-                        <div class="bg-[#FCFAF2] px-3 py-2 rounded-lg text-[10px] md:text-xs font-bold">VTuber配信実績アリ</div>
-                        <div class="bg-[#FCFAF2] px-3 py-2 rounded-lg text-[10px] md:text-xs font-bold">歌を愛する関西人</div>
+                    <div class="bg-white rounded-[30px] md:rounded-[40px] p-6 md:p-10 text-left shadow-sm border border-gray-100 max-w-2xl mx-auto">
+                        <div class="text-center mb-8">
+                            <h3 class="text-xl md:text-2xl font-bold">体験セッションお申込み</h3>
+                            <p class="text-[10px] md:text-xs text-gray-400 mt-2">入力内容は自動でコピーされます</p>
+                        </div>
+
+                        <form id="order-form" class="space-y-5">
+                            <div>
+                                <label class="block text-sm font-bold mb-2 text-slate-700">お名前 <span class="text-red-500">*</span></label>
+                                <input type="text" id="name" name="name" required class="form-input" placeholder="山田 太郎">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold mb-2 text-slate-700">メールアドレス <span class="text-red-500">*</span></label>
+                                <input type="email" id="email" name="email" required class="form-input" placeholder="sample@mail.com">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold mb-2 text-slate-700">希望メニュー <span class="text-red-500">*</span></label>
+                                <select id="menu" name="menu" required class="form-input bg-white">
+                                    <option value="体験セッション(5,000円)">体験セッション(5,000円)</option>
+                                    <option value="単発ビジョン言語化(10,000円)">単発ビジョン言語化(10,000円)</option>
+                                    <option value="3ヶ月自分軸確立コース">3ヶ月自分軸確立コース(45,000円)</option>
+                                    <option value="6ヶ月人生デザインコース">6ヶ月人生デザインコース(84,000円)</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold mb-2 text-slate-700">相談したいこと</label>
+                                <textarea id="message" name="message" rows="2" class="form-input" placeholder="今悩んでいることなど（任意）"></textarea>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold mb-2 text-slate-700">希望日時（第3候補まで） <span class="text-red-500">*</span></label>
+                                <textarea id="schedule" name="schedule" required rows="3" class="form-input text-sm" placeholder="例：&#13;&#10;1. 3月7日(土) 10:00〜&#13;&#10;2. 3月8日(日) 14:00〜&#13;&#10;3. 平日20時以降希望"></textarea>
+                            </div>
+                            <button type="button" onclick="handleSubmit()" class="btn-green text-white w-full py-4 rounded-full font-bold text-lg md:text-xl shadow-lg mt-4">
+                                Messengerでお申込み
+                            </button>
+                            <p class="text-[10px] text-gray-400 text-center leading-relaxed">
+                                ボタンを押すと内容がコピーされ、送信先へ案内します。<br>
+                                メッセージ欄に貼り付けて送信してください。
+                            </p>
+                        </form>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <!-- Footer -->
     <footer class="bg-[#009A57] text-white py-16 px-4 text-center">
         <div class="flex justify-center mb-8">
             <div class="w-24 h-24 rounded-full overflow-hidden border-4 border-white/20 bg-white">
-                <img src="nomaco_keirei.png" alt="ノマコアバター" class="w-full h-full object-cover" style="object-position: center top; transform: scale(1.2); transform-origin: top;">
+                <img src="nomaco_keirei.png" alt="ノマコアバター" onerror="this.src='https://via.placeholder.com/200x200?text=Nomako'" class="w-full h-full object-cover" style="object-position: center top; transform: scale(1.2); transform-origin: top;">
             </div> 
         </div>
         <h2 class="text-2xl md:text-3xl font-bold mb-6">さぁ、一緒に未来をソウゾウしよう！</h2>
@@ -400,30 +417,87 @@
         <p class="text-[10px] opacity-50">&copy; 2026 Nomako Coaching. All Rights Reserved.</p>
     </footer>
 
+    <!-- コピー完了通知モーダル -->
+    <div id="copy-modal" class="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 opacity-0 pointer-events-none transition-opacity duration-300 backdrop-blur-sm">
+        <div class="bg-white p-8 rounded-[40px] text-center max-w-xs mx-4 shadow-2xl scale-95 transition-transform duration-300" id="modal-content">
+            <div class="text-5xl mb-4">📋✨</div>
+            <h3 class="font-bold text-xl mb-3 text-slate-800">コピーしました！</h3>
+            <p class="text-sm text-slate-500 mb-8 leading-relaxed">
+                Messengerが起動しますので、<br>
+                メッセージ欄を<strong>長押しして「貼り付け」</strong>て送信してください！
+            </p>
+            <button onclick="launchMessenger()" class="btn-green text-white px-8 py-4 rounded-full font-bold w-full text-lg shadow-md">
+                Messengerを起動
+            </button>
+        </div>
+    </div>
+
     <script>
+        // スムーススクロールの処理
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    e.preventDefault();
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
             });
+        });
+
+        // お申込みボタン押下時の処理
+        function handleSubmit() {
+            const form = document.getElementById('order-form');
+            
+            if (!form.checkValidity()) {
+                form.reportValidity();
+                return;
+            }
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const menu = document.getElementById('menu').value;
+            const message = document.getElementById('message').value || '特になし';
+            const schedule = document.getElementById('schedule').value;
+
+            const copyText = `【コーチングお申込み】\n\n■氏名：\n${name}\n\n■連絡先：\n${email}\n\n■希望メニュー：\n${menu}\n\n■相談内容：\n${message}\n\n■希望日時：\n${schedule}\n\nよろしくお願いします！`;
+
+            const dummyArea = document.createElement("textarea");
+            dummyArea.value = copyText;
+            document.body.appendChild(dummyArea);
+            dummyArea.select();
+            try {
+                document.execCommand('copy');
+            } catch (err) {
+                console.error('コピーに失敗しました', err);
+            }
+            document.body.removeChild(dummyArea);
+
+            // モーダルを表示
+            const modal = document.getElementById('copy-modal');
+            const modalInner = document.getElementById('modal-content');
+            modal.classList.add('modal-active');
+            modalInner.classList.remove('scale-95');
+            modalInner.classList.add('scale-100');
+        }
+
+        // Messengerへリダイレクト
+        function launchMessenger() {
+            const messengerUrl = 'https://m.me/ayaka.nakahara.5';
+            window.open(messengerUrl, '_blank');
+            const modal = document.getElementById('copy-modal');
+            modal.classList.remove('modal-active');
+        }
+        
+        // モーダルの背景をクリックしても閉じられるように
+        document.getElementById('copy-modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                this.classList.remove('modal-active');
+            }
         });
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
