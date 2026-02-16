@@ -359,7 +359,7 @@
         </div>
     </section>
 
-        <!-- CTA Form -->
+        <!-- CTA Form Section -->
         <section id="cta" class="py-24 px-4 scroll-mt-20">
             <div class="container mx-auto">
                 <div class="bg-[#F9D300] rounded-[30px] md:rounded-[50px] p-6 md:p-12 max-w-4xl mx-auto shadow-2xl relative">
@@ -400,15 +400,12 @@
                             </div>
                             <div>
                                 <label class="block text-sm font-bold mb-2 text-slate-700">希望日時（第3候補まで） <span class="text-red-500">*</span></label>
-                                <textarea id="schedule" name="schedule" required rows="3" class="form-input text-sm" placeholder="例：&#13;&#10;1. 3月7日(土) 10:00〜&#13;&#10;2. 3月8日(日) 14:00〜&#13;&#10;3. 平日20時以降希望"></textarea>
+                                <textarea id="schedule" name="schedule" required rows="3" class="form-input text-sm" placeholder="例：&#13;&#10;1. 3月7日(土) 10:00〜&#13;&#10;2. 3月8日(日) 14:00〜"></textarea>
                             </div>
-                            <button type="button" onclick="handleSubmit()" class="btn-green text-white w-full py-4 rounded-full font-bold text-lg md:text-xl shadow-lg mt-4">
+                            <!-- 関数名をJavaScript側と一致させました -->
+                            <button type="button" onclick="handleCopyProcess()" class="btn-green text-white w-full py-4 rounded-full font-bold text-lg md:text-xl shadow-lg mt-4">
                                 Messengerでお申込み
                             </button>
-                            <p class="text-[10px] text-gray-400 text-center leading-relaxed">
-                                ボタンを押すと内容がコピーされ、送信先へ案内します。<br>
-                                メッセージ欄に貼り付けて送信してください。
-                            </p>
                         </form>
                     </div>
                 </div>
@@ -416,23 +413,9 @@
         </section>
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-[#009A57] text-white py-16 px-4 text-center">
-        <div class="flex justify-center mb-8">
-            <div class="w-24 h-24 rounded-full overflow-hidden border-4 border-white/20 bg-white">
-                <img src="nomaco_keirei.png" alt="ノマコアバター" onerror="this.src='https://via.placeholder.com/200x200?text=Nomako'" class="w-full h-full object-cover" style="object-position: center top; transform: scale(1.2); transform-origin: top;">
-            </div> 
-        </div>
-        <h2 class="text-2xl md:text-3xl font-bold mb-6">さぁ、一緒に未来をソウゾウしよう！</h2>
-        <p class="mb-10 text-sm md:text-base opacity-80">夢を語るのは恥ずかしいことじゃない。<br>一緒に考えてあなたらしい言葉でビジョンを描こう！</p>
-        <div class="w-20 h-1 bg-white/30 mx-auto mb-10"></div>
-        <p class="text-sm mb-4">ノマコ（野間 彩花）</p>
-        <p class="text-[10px] opacity-50">&copy; 2026 Nomako Coaching. All Rights Reserved.</p>
-    </footer>
-
-    <!-- コピー完了モーダル（初期状態は非表示） -->
-    <div id="copy-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 modal-overlay">
-        <div class="bg-white rounded-[30px] p-8 max-w-sm w-full text-center shadow-2xl transform transition-all">
+    <!-- コピー完了モーダル -->
+    <div id="copy-modal" class="hidden fixed inset-0 z-[100] flex items-center justify-center p-4">
+        <div class="bg-white rounded-[30px] p-8 max-w-sm w-full text-center shadow-2xl">
             <div class="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
@@ -440,18 +423,18 @@
             </div>
             <h3 class="text-xl font-bold mb-2">コピーしました！</h3>
             <p class="text-gray-600 text-sm mb-6">
-                お申込み内容をクリップボードにコピーしました。Messengerが開いたらメッセージ欄に貼り付けて送信してください。
+                お申込み内容をコピーしました。Messengerが開いたらメッセージ欄に貼り付けて送信してください。
             </p>
             <button onclick="redirectToMessenger()" class="btn-green text-white w-full py-4 rounded-full font-bold text-lg shadow-lg">
                 Messengerを起動する
             </button>
-            <button onclick="closeModal()" class="mt-4 text-gray-400 text-sm hover:underline">
+            <button onclick="closeModal()" class="mt-4 text-gray-400 text-sm hover:underline block mx-auto">
                 閉じる
             </button>
         </div>
     </div>
-        <script>
-        // メッセンジャーのURL
+
+    <script>
         const MESSENGER_URL = 'https://m.me/ayaka.nakahara.5';
 
         function handleCopyProcess() {
@@ -466,11 +449,12 @@
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
             const menu = document.getElementById('menu').value;
+            const message = document.getElementById('message').value || "特になし";
             const schedule = document.getElementById('schedule').value;
 
-            const copyText = `【コーチングお申込み】\n\n■氏名：\n${name}\n\n■連絡先：\n${email}\n\n■希望メニュー：\n${menu}\n\n■希望日時：\n${schedule}\n\nよろしくお願いします！`;
+            const copyText = `【コーチングお申込み】\n\n■氏名：\n${name}\n\n■連絡先：\n${email}\n\n■希望メニュー：\n${menu}\n\n■相談内容：\n${message}\n\n■希望日時：\n${schedule}\n\nよろしくお願いします！`;
 
-            // 1. クリップボードにコピー
+            // クリップボードにコピー
             const dummyArea = document.createElement("textarea");
             dummyArea.value = copyText;
             document.body.appendChild(dummyArea);
@@ -479,33 +463,58 @@
             try {
                 const success = document.execCommand('copy');
                 if (success) {
-                    // 2. コピーに成功したらモーダルを表示
                     openModal();
                 } else {
-                    console.error('コピーに失敗しました');
+                    alert('コピーに失敗しました。手動で入力をお願いします。');
                 }
             } catch (err) {
-                console.error('コピー処理中にエラーが発生しました', err);
+                console.error('コピーエラー:', err);
             }
             document.body.removeChild(dummyArea);
         }
 
         function openModal() {
-            const modal = document.getElementById('copy-modal');
-            modal.classList.remove('hidden');
+            document.getElementById('copy-modal').classList.remove('hidden');
         }
 
         function closeModal() {
-            const modal = document.getElementById('copy-modal');
-            modal.classList.add('hidden');
+            document.getElementById('copy-modal').classList.add('hidden');
         }
 
         function redirectToMessenger() {
-            // Messengerを開く
             window.location.href = MESSENGER_URL;
         }
     </script>
+        <!-- Footer -->
+    <footer class="bg-[#009A57] text-white py-20 px-4 text-center">
+        <div class="flex justify-center mb-8">
+            <div class="w-24 h-24 rounded-full overflow-hidden border-4 border-white/20">
+                <!-- フッターアバター -->
+                <div class="w-full h-full bg-[#ffffff]">
+                    <img src="nomaco_keirei.png" alt="ノマコアバター" class="w-full h-full object-cover">
+                </div>
+            </div> 
+        </div>
+        <h2 class="text-3xl font-bold mb-8">さぁ、一緒に未来をソウゾウしよう！</h2>
+        <p class="mb-12 opacity-80">夢を語るのは恥ずかしいことじゃない。<br>一緒に考えてあなたらしい言葉でビジョンを描こう！</p>
+        <div class="w-20 h-1 bg-white/30 mx-auto mb-12"></div>
+        <p class="text-sm mb-4">ノマコ（野間 彩花）</p>
+        <p class="text-xs opacity-50">&copy; 2026 Nomako Coaching. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
 </body>
 </html>
-
-
