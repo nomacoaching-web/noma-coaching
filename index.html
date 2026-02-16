@@ -335,64 +335,27 @@
         </div>
     </section>
 
-　　 <!-- Experience CTA + Form Integration -->
-    <section id="cta" class="py-20 px-4 scroll-mt-10">
-        <div class="container mx-auto">
-            <div class="bg-[#F9D300] rounded-[30px] md:rounded-[50px] p-8 md:p-16 text-center max-w-4xl mx-auto shadow-2xl relative">
+    <!-- Experience CTA -->
+    <section id="cta" class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="bg-[#F9D300] rounded-[50px] p-8 md:p-16 text-center max-w-4xl mx-auto shadow-2xl">
                 <h2 class="text-2xl md:text-4xl font-bold mb-6">まずは話してみませんか？</h2>
-                <div class="bg-white inline-block px-4 md:px-6 py-2 rounded-full font-bold text-[#009A57] mb-8 text-sm md:text-base">
+                <div class="bg-white inline-block px-6 py-2 rounded-full font-bold text-[#009A57] mb-8">
                     今だけ特別体験セッション募集中！
                 </div>
-                <div class="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8 mb-12">
-                    <div class="text-center md:text-left">
-                        <p class="text-gray-600 line-through text-sm">通常価格 10,000円</p>
-                        <p class="text-3xl md:text-4xl font-bold">特別価格 5,000円</p>
+                <div class="flex flex-col md:flex-row items-center justify-center gap-8 mb-12">
+                    <div class="text-left">
+                        <p class="text-gray-600 line-through">通常価格 10,000円</p>
+                        <p class="text-4xl font-bold">特別価格 5,000円</p>
                         <p class="text-sm font-bold mt-2">限定 5名様（Zoom）</p>
                     </div>
                 </div>
-
-                <!-- フォームを内包するエリア -->
-                <div class="bg-white rounded-[30px] md:rounded-[40px] p-6 md:p-10 text-left shadow-sm border border-gray-100 max-w-2xl mx-auto">
-                    <div class="text-center mb-8">
-                        <h3 class="text-xl md:text-2xl font-bold">体験セッションお申込み</h3>
-                        <p class="text-[10px] md:text-xs text-gray-400 mt-2">※会社員のため、ご連絡は19時以降または土日となります</p>
-                    </div>
-
-                    <form id="order-form" class="space-y-5">
-                        <div>
-                            <label class="block text-sm font-bold mb-2">お名前 <span class="text-red-500">*</span></label>
-                            <input type="text" id="form-name" required class="form-input" placeholder="山田 太郎">
-                        </div>
-
-                        <div>
-                            <label class="block text-sm font-bold mb-2">メールアドレス <span class="text-red-500">*</span></label>
-                            <input type="email" id="form-email" required class="form-input" placeholder="sample@mail.com">
-                        </div>
-
-                        <div>
-                            <label class="block text-sm font-bold mb-2">希望メニュー <span class="text-red-500">*</span></label>
-                            <select id="form-menu" required class="form-input">
-                                <option value="体験セッション(5,000円)">体験セッション(5,000円)</option>
-                                <option value="単発ビジョン言語化(10,000円)">単発ビジョン言語化(10,000円)</option>
-                                <option value="3ヶ月コース">3ヶ月自分軸確立コース</option>
-                                <option value="6ヶ月コース">6ヶ月人生デザインコース</option>
-                            </select>
-                        </div>
-
-                        <div>
-                            <label class="block text-sm font-bold mb-2">希望日時（第3候補まで） <span class="text-red-500">*</span></label>
-                            <textarea id="form-schedule" required rows="3" class="form-input text-sm" placeholder="例：&#13;&#10;1. 3月7日(土) 10:00〜&#13;&#10;2. 3月8日(日) 14:00〜&#13;&#10;3. 平日20時以降希望"></textarea>
-                        </div>
-
-                        <button type="button" onclick="copyAndRedirect()" class="btn-green text-white w-full py-4 rounded-full font-bold text-lg md:text-xl shadow-lg mt-4">
-                            Messengerでお申込み
-                        </button>
-                        <p class="text-[10px] text-gray-400 text-center leading-relaxed">
-                            ボタンを押すと内容がコピーされ、Messengerが起動します。<br>
-                            メッセージ欄に貼り付けて送信してください。
-                        </p>
-                    </form>
+                <div class="bg-white/50 p-6 rounded-2xl mb-10 text-sm inline-block">
+                    <p>対象：平日夜もしくは土日のセッションが可能な方</p>
+                    <p>※会社員のため、ご連絡は19時以降または土日となります</p>
                 </div>
+                <br>
+                <a href="https://m.me/ayaka.nakahara.5" target="_blank" class="btn-green text-white px-10 py-5 rounded-full font-bold text-xl inline-block">Facebook Messengerでお申込み</a>
             </div>
         </div>
     </section>
@@ -449,6 +412,7 @@
     </script>
 </body>
 </html>
+
 
 
 
